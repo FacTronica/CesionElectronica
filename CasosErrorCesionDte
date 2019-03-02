@@ -1,0 +1,23 @@
+La finalidad de este apartado, es mencionar los casos de error mas comunes al momento de ceder facturas electronicas.
+
+Caso 1:
+AL momento de generar el Xml del dte y sellarlo, en el mismo xml queda estampado el timestamp de timbrado y firmado.
+El timestamp es la fecha y hora de un proceso.
+Este caso de error sucede cuando luego de haber generado un aprobado por el sii, se vuelve a generar un nuevo xml.
+Este nuevo xml ya no tiene la misma fecha y hora del xml original, motivo por el cual es rechazado.
+
+Solución Caso 1:
+Para resolver este problema se debe volver a generar el Xml pero en este caso se debe obligar a la apifactronica 
+para que el timestamp de sellado sea el que sea enviado en el txt a través de la siguiente variable.
+      
+// EJEMPLO: $FACTRONICA["TIMESTAMP"]="2017-06-06T18:08:07";
+$FACTRONICA["TIMESTAMP"]="2017-06-06T18:08:07";
+
+De esta forma al volver a generarse el xml con el mismo timestamp tendremos nuevamente una copia del original.
+
+Ahora la pregunta es como obtener la fecha y hora del envío original.
+Para ello se debe ir al registro de compra y venta del sii y en la pestaña VENTAS, se puede ver la 
+fecha y hora de recepción por parte del sii, de esta forma sabremos la fecha y hora de envío.
+
+Es importante señalar que en algunas ocasiones existe una diferencia de segundos entre servidor del sii y servidor de factronica, 
+por lo que en esos casos para lograr el xml original habría que aumentar o disminuir segundos hasta obtener el  original.
