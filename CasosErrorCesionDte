@@ -23,4 +23,5 @@ Es importante señalar que en algunas ocasiones existe una diferencia de segundo
 por lo que en esos casos para lograr el xml original habría que aumentar o disminuir segundos hasta obtener el  original.
 
 IMPORTANTE:
-La variable $FACTRONICA["TIMESTAMP"] se debe agregar al txt cuando se emite un dte y luego volver a enviar el txt para emitir nuevamente el dte logrando con esto tener una copia del original.
+La variable $FACTRONICA["TIMESTAMP"] se debe agregar al txt cuando se emite un dte y luego volver a enviar el txt para 
+emitir nuevamente el dte logrando con esto tener una copia del original.
